@@ -1,0 +1,12 @@
+h1 {
+    color: blue;
+}
+
+img {
+    width: 400px;
+}
+
+body {
+    background-image: url();
+    background-repeat: repeat-x;
+}
