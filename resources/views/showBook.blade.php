@@ -7,6 +7,7 @@
 <h1>Book Detail</h1>
 <h3>Book Title: {{ $book->title }}</h3>
 <h4>Author: {{ $book->author }}</h4>
+<h4>Genre: {{ $book->genre->name }}</h4>
 <p>Description: {{ $book['description'] }}</p>
 
 <form action="/delete-book/{{ $book->id }}" method="POST">

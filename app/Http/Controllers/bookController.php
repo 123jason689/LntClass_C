@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class bookController extends Controller
 {
     public function createBook(){
         return view('createBook', [
-            'title' => 'Create Book'
+            'title' => 'Create Book',
+            'genres' => Genre::all()
         ]);
     }
 
@@ -17,13 +19,15 @@ class bookController extends Controller
         $request->validate([
             'title'=>'required|min:3|max:20',
             'author'=>'required',
-            'description'=>'required'
+            'description'=>'required',
+            'genre_id' => 'required'
         ]);
 
         Book::create([
             'title' => $request->title,
             'author' => $request->author,
-            'description' => $request->description
+            'description' => $request->description,
+            'genre_id' => $request->genre_id,
         ]);
 
         return redirect('/');
