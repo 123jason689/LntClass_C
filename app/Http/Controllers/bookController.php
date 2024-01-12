@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Customer;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 
@@ -42,9 +43,11 @@ class bookController extends Controller
     }
 
     public function showBook(Book $book){
+        $customers = Customer::all();
         return view('showBook', [
             'title' => 'Show Book',
-            'book' => $book
+            'book' => $book,
+            'customers' => $customers,
         ]);
     }
 

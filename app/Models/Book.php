@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Customer;
+use Faker\Provider\Lorem;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Book extends Model
 {
@@ -19,5 +21,10 @@ class Book extends Model
     // one to many type data sets relation
     public function genre(){
         return $this->belongsTo(Genre::class); //if the book belongs to the genre (books are many but only has 1 type genre)
+    }
+
+
+    public function customers(){
+        return $this->belongsToMany(Customer::class);
     }
 }

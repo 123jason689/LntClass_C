@@ -21,4 +21,11 @@
 <br>
 <br>
 
+<h2>Bought By:</h2>
+<ul>
+    @foreach($book->customers as $customer)
+        <li>{{ $customer->name }}</li>
+    @endforeach
+</ul>
+    
 @endsection
