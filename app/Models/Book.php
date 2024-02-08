@@ -15,7 +15,8 @@ class Book extends Model
         'title',
         'author',
         'description',
-        'genre_id'
+        'genre_id',
+        'image'
     ];
 
     // one to many type data sets relation

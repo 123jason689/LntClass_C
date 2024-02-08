@@ -5,6 +5,7 @@
 @section('container')
 
 <h1>Book Detail</h1>
+<img src="{{ asset('storage/book_images/'.$book->image) }}" alt="{{ $book->title . ' Cover' }}" style="width: 300px">
 <h3>Book Title: {{ $book->title }}</h3>
 <h4>Author: {{ $book->author }}</h4>
 <h4>Genre: {{ $book->genre->name }}</h4>
@@ -23,9 +24,9 @@
 
 <h2>Bought By:</h2>
 <ul>
-    @foreach($book->customers as $customer)
+    @foreach($customers as $customer)
         <li>{{ $customer->name }}</li>
     @endforeach
 </ul>
-    
+
 @endsection

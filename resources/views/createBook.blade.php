@@ -4,7 +4,7 @@
 @section('container')
 
 
-<form action = "/store-book" method = "POST">
+<form action = "/store-book" method = "POST" enctype="multipart/form-data">
     @csrf
     <h1>Create A Book</h1>
     <div class="mb-3">
@@ -35,6 +35,13 @@
       @error('description')
         <div class="alert alert-danger">{{ $message }}</div>
       @enderror
+    </div>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Book Cover</label>
+        <input class="form-control" type="file" id="formFile" name="image" value="{{ old('image') }}">
+        @error('image')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

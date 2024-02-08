@@ -21,14 +21,20 @@ class bookController extends Controller
             'title'=>'required|min:3|max:20',
             'author'=>'required',
             'description'=>'required',
-            'genre_id' => 'required'
+            'genre_id' => 'required',
+            'image'=> 'required|mimes:png,jpg'
         ]);
+
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $filename = $request->title . '-' . 'cover' . '.' . $extension;
+        $request->file('image')->storeAs('/public/book_images', $filename);
 
         Book::create([
             'title' => $request->title,
             'author' => $request->author,
             'description' => $request->description,
             'genre_id' => $request->genre_id,
+            'image'=>$filename
         ]);
 
         return redirect('/');
