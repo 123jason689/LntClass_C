@@ -50,7 +50,7 @@ Route::get('/edit-book/{book:id}', [bookController::class, 'edit']);
 Route::PATCH('/update-book/{book:id}', [bookController::class, 'update']);
 
 // genre route controller
-Route::get('/create-genre', [genreController::class, 'createGenre']);
-Route::POST('/store-genre', [genreController::class, 'storeGenre']);
+Route::get('/create-genre', [genreController::class, 'createGenre'])->middleware('admin');
+Route::POST('/store-genre', [genreController::class, 'storeGenre'])->middleware('admin');
 Route::get('/genres', [genreController::class, 'index']);
 Route::get('/show-genre/{genre:id}', [genreController::class, 'showGenre']);

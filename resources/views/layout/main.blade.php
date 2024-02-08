@@ -26,6 +26,11 @@
               <li class="nav-item">
                 <a class="nav-link {{ ($title === 'About Page')? 'active' : '' }}" href="/about">About</a>
               </li>
+              @can('is_admin')
+              <li class="nav-item">
+                <a class="nav-link {{ ($title === 'Create Genre')? 'active' : '' }}" href="/create-genre">Create genre</a>
+              </li>
+              @endcan
             </ul>
             @auth
                 <ul class="navbar-nav ms-auto me-3">

@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 class genreController extends Controller
 {
     public function createGenre(){
+
+        // $this->authorize('is_admin');
+
         return view("createGenre", [
             'title' => 'Create Genre'
         ]);
